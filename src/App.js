@@ -8,10 +8,13 @@ function App() {
   return (
     <div className="App">
      <Header/>
+     <main>
+
      <Routes>
       <Route path='/' element={<Dashboard/>}/>
       <Route path='/create_ad' element={<CreateAds/>}/>
      </Routes>
+     </main>
     </div>
   );
 }

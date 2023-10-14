@@ -1,13 +1,13 @@
 export const usersData =[
+ 
   {
-    id:3,
+    id:1,
     group:"Male",
     clicks:348,
     cost :12528 ,
     conversions:42 ,
     revenue: 62118,
-  },
-  {
+  },{
     id:2,
     group:"female",
     clicks:692,
@@ -16,13 +16,13 @@ export const usersData =[
     revenue:5175 ,
   },
   {
-    id:1,
+    id:3,
     group:"Unknown",
     clicks:105,
     cost :3943 ,
     conversions: 3,
     revenue: 4489,
-  },
+  }
   
 ]
 
@@ -76,4 +76,5 @@ export const actionTypes = {
     SORT_BY_COST  : "SORT_BY_COST ",
     SORT_BY_CONVERSIONS : "SORT_BY_CONVERSIONS",
     SORT_BY_REVENUE : "SORT_BY_REVENUE",
+    SELECT_MATRIX:"SELECT_MATRIX"
 }

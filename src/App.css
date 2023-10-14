@@ -31,7 +31,9 @@ header nav a {
   font-weight: 400;
   padding: 0 10px;
 }
-
+main{
+  margin-top:2rem;
+}
 .chart {
 max-width: 50%;
 margin: auto;
@@ -59,15 +61,19 @@ tr {
 table {
   border-collapse: collapse;
   border: none;
+  width: 100%;
 }
 
 thead {
   width: 100%;
 }
-
+svg:hover{
+  cursor:pointer
+}
 .tableName {
   width: 100%;
   display: flex;
+  font-weight: 500;
   justify-content: space-between;
   align-items: center;
   border-bottom: none;
@@ -160,7 +166,11 @@ input[type="checkbox"] {
   transform: scale(1.8);
   cursor: pointer;
 }
-
+select{
+  padding:5px;
+  border-radius:5px;
+  border:1px solid #ccc
+}
 button {
   font-weight: 600;
   font-size: large;
@@ -278,19 +288,28 @@ textarea {
   position:absolute;
   bottom:1vh;
   right:2vh;
-  padding: 0 2px;
+  
   min-width: max-content;
-  width: 50px;
+  width: 90px;
   background-color: #ddd;
   border-radius: 25px;
   display: flex;
   flex-direction: row;
   gap: 7px;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: #616060
 }
-
+.toggleDataChart:hover{
+  cursor:pointer
+}
+.matric{
+  display: flex;
+  justify-content: space-evenly;
+}
+.matric select{
+  margin-right:10px;
+}
 /*
 add flex-wrap: wrap; to flex-row and flex-col in media query
 */

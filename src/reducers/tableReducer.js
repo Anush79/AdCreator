@@ -1,37 +1,36 @@
 import { actionTypes } from "../utils/constants";
-import { votersData,  } from "../utils/constants";
+import { usersData, adInsights } from "../utils/constants";
 const {
   SORT_BY_CLICKS,
-  SORT_BY_CATEGORIES,
-  SORT_BY_COST,
-  SORT_BY_CONVERSIONS,
-  SORT_BY_REVENUE,
+    SELECT_MATRIX,
 } = actionTypes;
 const initialValue = {
-  cometics:[],
-  users:[]
+  cosmeticAds: [...adInsights],
+  users: [...usersData],
+  matric: "clicks",
 };
 
-const tableReducer = (state=initialValue, action) => {
+const tableReducer = (state = initialValue, action) => {
+  console.log({ state });
   const { type, payload } = action;
   switch (type) {
-    case SORT_BY_CATEGORIES:
-
-      break;
-  
+    case SELECT_MATRIX:
+      return { ...state, matric: payload };
     case SORT_BY_CLICKS:
-      return {}
-      break;
-    case SORT_BY_CONVERSIONS:
-      break;
-    case SORT_BY_COST:
-      break;
-    case SORT_BY_REVENUE:
-      break;
-
+      return {
+        ...state,
+        [payload.table]: [
+          ...state[payload.table].sort((a, b) =>
+            payload.toggle
+              ? a[payload.prop] - b[payload.prop]
+              : b[payload.prop] - a[payload.prop]
+          ),
+        ],
+      };
+     
     default:
-      break;
+      return state
   }
 };
 
-export {tableReducer}
+export { tableReducer };
