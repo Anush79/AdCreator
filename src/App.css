@@ -1,38 +1,296 @@
 .App {
   text-align: center;
+  font-weight: 300;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.3vw;
+  box-shadow: 0 0 10px #ddd;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header .logo {
+  font-weight: 600;
+  font-size: 1.5vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header nav {
+  min-width: 16vw;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+header nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: currentColor;
+  font-weight: 400;
+  padding: 0 10px;
+}
+
+.chart {
+max-width: 50%;
+margin: auto;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.dataContainer {
+  min-width: 45vw;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  padding: 10px 15px;
+  position:relative;
+}
+
+tr {
+  border: 2px solid #ddd;
+  text-align: right;
+}
+
+table {
+  border-collapse: collapse;
+  border: none;
+}
+
+thead {
+  width: 100%;
+}
+
+.tableName {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+
+table,
+td,
+th {
+  padding: 10px 15px
+}
+
+th {
+  font-weight: 500;
+}
+
+td {
+  color: #737272;
+}
+
+.right_align {
+  text-align: left;
+}
+
+.sortIcons {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.adContainer {
+  position: relative;
+  width: calc(100% - 50px);
+  box-shadow: 0 0 4px #ababab;
+  border-radius: 5px;
+  margin: auto;
+  min-height: calc(100vh - 100px);
+  height: 100%;
+  margin-top: 1.6rem;
+}
+
+.adContainer P {
+  text-align: left;
+  padding: 10px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+textarea {
+  resize: none;
+  height: 100%;
+}
+
+.options {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4vw;
+  height: 100%;
+
+}
+
+.options label {
+  box-shadow: 0 0 10px #d1d1d1;
+  border-radius: 10px;
+  text-align: left;
+  padding: 1rem 1rem 2rem 1rem;
+  cursor: pointer;
+}
+
+.options img {
+  width: 15vw;
+  padding: 10px 2.5rem;
+}
+
+.options div {
+  text-align: center;
+}
+
+.options b {
+  font-size: 1.3rem;
+
+}
+
+.lightText {
+  color: #ababab
+}
+
+input[type="checkbox"] {
+  transform: scale(1.8);
+  cursor: pointer;
+}
+
+button {
+  font-weight: 600;
+  font-size: large;
+  color: #fff;
+  padding: 0.8rem 4rem;
+  border: none;
+  border-radius: 5px;
+
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.primaryButton {
+  background-color: #0096ff;
+}
+
+.secondaryButton {
+  background-color: #fff;
+  color: currentColor;
+  border: 2px solid #ddd;
+}
+
+.button,
+.buttons {
+  position: absolute;
+  bottom: 2vh;
+  right: 1vw;
+}
+
+.flex-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.flex-row {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+}
+
+form {
+  padding: 1rem;
+}
+
+form div {
+  width: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+form label {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.6rem;
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
+textarea,
+input[type="text"] {
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  flex-grow: 1;
+  font-size: 1em;
+}
+
+textarea {
+  min-height: 13vh;
+}
+
+.custom-dialog {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.custom-dialog.open {
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dialog-content {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
 }
+
+.buttons {
+  display: flex;
+  min-width: 300px;
+  justify-content: right;
+  gap: 1rem;
+}
+
+.toggleDataChart {
+  position:absolute;
+  bottom:1vh;
+  right:2vh;
+  padding: 0 2px;
+  min-width: max-content;
+  width: 50px;
+  background-color: #ddd;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
+  color: #616060
+}
+
+/*
+add flex-wrap: wrap; to flex-row and flex-col in media query
+*/
