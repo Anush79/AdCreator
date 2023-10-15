@@ -2,7 +2,7 @@
 
 This repository contains the source code and files for a React web application assignment completed by Anushka Jaiswal. The assignment  and consists of building a responsive web application with specific features and functionality.
 
-(Live Link)[https://keywordiobyanushka.netlify.app/]
+[Live Link](https://keywordiobyanushka.netlify.app/)
 
 ## Assignment Details
 
