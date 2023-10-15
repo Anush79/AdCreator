@@ -11,7 +11,7 @@ const initialValue = {
 };
 
 const tableReducer = (state = initialValue, action) => {
-  console.log({ state });
+
   const { type, payload } = action;
   switch (type) {
     case SELECT_MATRIX:

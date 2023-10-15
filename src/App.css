@@ -253,28 +253,41 @@ textarea {
 
 .custom-dialog {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .custom-dialog.open {
-  display: block;
+  display: flex;
 }
 
 .dialog-content {
   background: white;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  box-shadow: 0 0 10px #ccc;
+  padding: 3rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 20vmax;
+}
+.dialog-content svg{
+  color: #0096ff;
+}
+.dialog-content span{
+  font-weight: 500;
 }
 
 .buttons {
@@ -288,7 +301,6 @@ textarea {
   position:absolute;
   bottom:1vh;
   right:2vh;
-  
   min-width: max-content;
   width: 90px;
   background-color: #ddd;

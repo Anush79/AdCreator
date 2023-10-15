@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 export function DoughnutChart() {
   const users = useSelector((state) => state?.users);
-  console.log({users})
+
   const matrix = useSelector((state) => state?.matric);
   const [chartData, setChartData] = useState({
     labels: usersData?.map((item) => item?.group),
