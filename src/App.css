@@ -9,7 +9,7 @@ header {
   justify-content: space-between;
   padding: 1rem;
   font-size: 1.3vw;
-  box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
 header .logo {
@@ -49,13 +49,13 @@ margin: auto;
 .dataContainer {
   min-width: 45vw;
   border-radius: 5px;
-  border: 2px solid #ddd;
+  border: 2px solid var(--primary-color);
   /* padding: 10px 15px; */
   position:relative;
 }
 
 tr {
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid var(--primary-color);
   text-align: right;
 }
 
@@ -76,7 +76,7 @@ svg:hover{
   font-weight: 500;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid var(--primary-color);
   border-radius: 5px 5px 0 0;
   padding:0.5rem 1rem;
 }
@@ -87,7 +87,6 @@ th {
   padding: 10px 15px
   
 }
-
 th {
   font-weight: 500;
   cursor: pointer;
@@ -96,7 +95,9 @@ th {
 td {
   color: #737272;
 }
-
+tfoot tr{
+  background-color: #f0f0f09b;
+}
 .right_align {
   text-align: left;
 }
@@ -107,7 +108,7 @@ td {
 }
 .sortIcons svg{
   font-size: small;
-  color: #ccc;
+  color: var(--secondary-color);
 }
 #downArrow{
   margin-top: -12px;
@@ -116,7 +117,7 @@ td {
 
 .adContainer {
   position: relative;
-  width: calc(100% - 50px);
+  width: calc(100% - 80px);
   box-shadow: 0 0 4px #ababab;
   border-radius: 5px;
   margin: auto;
@@ -127,9 +128,8 @@ td {
 
 .adContainer P {
   text-align: left;
-  padding: 10px;
   font-weight: 500;
-  margin-bottom: 0;
+  margin:0;
 }
 
 textarea {
@@ -180,7 +180,7 @@ input[type="checkbox"] {
 select{
   padding:5px;
   border-radius:5px;
-  border:1px solid #ccc
+  border:1px solid var(--secondary-color)
 }
 button {
   font-weight: 600;
@@ -198,13 +198,13 @@ button:hover {
 }
 
 .primaryButton {
-  background-color: #0096ff;
+  background-color: var(--primary-btn-color);
 }
 
 .secondaryButton {
   background-color: #fff;
   color: currentColor;
-  border: 2px solid #ddd;
+  border: 2px solid var(--primary-color);
 }
 
 .button,
@@ -252,7 +252,7 @@ form label {
 textarea,
 input[type="text"] {
   padding: 0.8rem;
-  border: 2px solid #ddd;
+  border: 2px solid var(--primary-color);
   border-radius: 5px;
   flex-grow: 1;
   font-size: 1em;
@@ -284,7 +284,7 @@ textarea {
 .dialog-content {
   background: white;
   border-radius: 5px;
-  box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px var(--secondary-color);
   padding: 3rem;
   text-align: center;
   display: flex;
@@ -295,7 +295,7 @@ textarea {
   width: 20vmax;
 }
 .dialog-content svg{
-  color: #0096ff;
+  color: var(--primary-btn-color);
 }
 .dialog-content span{
   font-weight: 500;
@@ -314,7 +314,7 @@ textarea {
   right:2vh;
   min-width: max-content;
   width: 90px;
-  background-color: #ddd;
+  background-color: var(--primary-color);
   border-radius: 25px;
   display: flex;
   flex-direction: row;
@@ -371,13 +371,13 @@ add flex-wrap: wrap; to flex-row and flex-col in media query
   }
   
   table tr {
-    border-bottom: 3px solid #ddd;
+    border-bottom: 3px solid var(--primary-color);
     display: block;
     margin-bottom: .625em;
     }
   
   table td {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--primary-color);
     display: block;
     font-size: .8em;
     text-align: right;

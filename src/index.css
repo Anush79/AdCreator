@@ -19,10 +19,9 @@ code {
 }
 /* Define your minimum and maximum font sizes and screen widths */
 :root {
-  --minFont: 16px;
-  --maxFont: 24px;
-  --minScreenWidth: 320px;
-  --maxScreenWidth: 1200px;
+  --primary-color:#ddd;
+  --secondary-color:#ccc;
+  --primary-btn-color:#0096ff;
 }
 ::placeholder {
   font-family: poppins;

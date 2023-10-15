@@ -1,9 +1,8 @@
-// import ad1 from '\public\ad1.png'
-import {toast } from 'react'
-import ad2 from "../utils/images/ad2.png";
-import ad1 from "../utils/images/ad1.png";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import AdForm from "../components/AdForm";
+import ad1 from "../utils/images/ad1.png";
+import ad2 from "../utils/images/ad2.png";
 
 export default function CreateAds() {
   const [openForm, setOpenForm] = useState(false);
@@ -17,7 +16,6 @@ export default function CreateAds() {
       <div className="adContainer">
         <p>Create Ads</p>
         <div className="options">
-         
           <label htmlFor="text_ad">
             <input
               type="checkbox"
@@ -27,7 +25,7 @@ export default function CreateAds() {
                 setAdType({ ...adType, text: e.target.checked });
               }}
             />
-            
+
             <div>
               <img src={ad2} alt="ad" />
               <div className="lightText">create</div>
@@ -49,23 +47,21 @@ export default function CreateAds() {
               <b>Media Ad</b>
             </div>
           </label>
-         
         </div>
         <div className="button">
-            <button
-              className="primaryButton"
-              onClick={() => {
-                if(adType.text || adType.media){
-                setOpenForm(true);}
-                else{
-                  toast.info("Select any one type of Ad")
-                }
-              }}
-            >
-              Next
-            </button>
-            
-          </div>
+          <button
+            className="primaryButton"
+            onClick={() => {
+              if (adType.text || adType.media) {
+                setOpenForm(true);
+              } else {
+                toast.info("Select any one type of Ad");
+              }
+            }}
+          >
+            Next
+          </button>
+        </div>
       </div>
     );
   else
