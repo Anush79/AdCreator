@@ -1,5 +1,5 @@
 // import ad1 from '\public\ad1.png'
-import {toast } from 'react-toastify'
+import {toast } from 'react'
 import ad2 from "../utils/images/ad2.png";
 import ad1 from "../utils/images/ad1.png";
 import { useState } from "react";
@@ -49,7 +49,9 @@ export default function CreateAds() {
               <b>Media Ad</b>
             </div>
           </label>
-          <div className="button">
+         
+        </div>
+        <div className="button">
             <button
               className="primaryButton"
               onClick={() => {
@@ -64,7 +66,6 @@ export default function CreateAds() {
             </button>
             
           </div>
-        </div>
       </div>
     );
   else

@@ -29,7 +29,10 @@ code {
   color: #ddd;
 }
 
-/* Apply the responsive font size using the formula */
-body {
-  font-size: calc( var(--minFont) + (var(--maxFont) - var(--minFont)) * ((100vw - var(--minScreenWidth)) / (var(--maxScreenWidth) - var(--minScreenWidth))));
-}
+
+
+
+
+
+
+

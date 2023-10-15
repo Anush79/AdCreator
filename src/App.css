@@ -32,7 +32,7 @@ header nav a {
   padding: 0 10px;
 }
 main{
-  margin-top:2rem;
+  margin-top:1.5rem;
 }
 .chart {
 max-width: 50%;
@@ -43,18 +43,19 @@ margin: auto;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  gap:1rem;
 }
 
 .dataContainer {
   min-width: 45vw;
   border-radius: 5px;
   border: 2px solid #ddd;
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
   position:relative;
 }
 
 tr {
-  border: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
   text-align: right;
 }
 
@@ -71,23 +72,25 @@ svg:hover{
   cursor:pointer
 }
 .tableName {
-  width: 100%;
   display: flex;
   font-weight: 500;
   justify-content: space-between;
   align-items: center;
-  border-bottom: none;
+  border-bottom: 2px solid #ddd;
   border-radius: 5px 5px 0 0;
+  padding:0.5rem 1rem;
 }
 
 table,
 td,
 th {
   padding: 10px 15px
+  
 }
 
 th {
   font-weight: 500;
+  cursor: pointer;
 }
 
 td {
@@ -102,6 +105,14 @@ td {
   display: inline-flex;
   flex-direction: column;
 }
+.sortIcons svg{
+  font-size: small;
+  color: #ccc;
+}
+#downArrow{
+  margin-top: -12px;
+  height: 10px;
+}
 
 .adContainer {
   position: relative;
@@ -109,9 +120,9 @@ td {
   box-shadow: 0 0 4px #ababab;
   border-radius: 5px;
   margin: auto;
-  min-height: calc(100vh - 100px);
   height: 100%;
   margin-top: 1.6rem;
+  padding:1rem;
 }
 
 .adContainer P {
@@ -127,7 +138,7 @@ textarea {
 }
 
 .options {
-
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -198,9 +209,8 @@ button:hover {
 
 .button,
 .buttons {
-  position: absolute;
-  bottom: 2vh;
-  right: 1vw;
+display: flex;
+justify-content: flex-end;
 }
 
 .flex-col {
@@ -226,6 +236,7 @@ form div {
   width: 100%;
   justify-content: space-between;
   flex-grow: 1;
+  padding-bottom: 1rem;
 }
 
 form label {
@@ -322,6 +333,76 @@ textarea {
 .matric select{
   margin-right:10px;
 }
+
 /*
 add flex-wrap: wrap; to flex-row and flex-col in media query
 */
+
+@media screen and (max-width: 600px) {
+  form div {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+  
+.options img {
+  width: 100%;
+  padding: 0;
+}
+
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+    }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+  .right_align{
+    text-align: right;
+  }
+  header{
+    font-size: 1rem;
+  }
+  header .logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}
+
+

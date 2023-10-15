@@ -10,7 +10,7 @@ import { calculateTotal } from "../utils/utilityFunctions";
 import UpDownArrow from "../components/UpDownArrow";
 export default function Dashboard() {
   const [toggleChart, setToggleCharts] = useState("doughnut");
-  const { SELECT_MATRIX, SORT_BY_CLICKS } = actionTypes;
+  const { SELECT_MATRIX, SORT_BY_CLICKS ,SORT_BY_NAME} = actionTypes;
   const dispatch = useDispatch();
   const cosmeticAds = useSelector((state) => state?.cosmeticAds);
   const users = useSelector((state) => state?.users);
@@ -37,7 +37,13 @@ export default function Dashboard() {
         <table>
           <thead>
             <tr>
-              <th className="right_align">
+              <th className="right_align" onClick={() => {
+                  setSorting(!sorting);
+                  dispatch({
+                    type: SORT_BY_NAME,
+                    payload: { table: "cosmeticAds", toggle: sorting },
+                  });
+                }} >
                 Campaigns <UpDownArrow />
               </th>
               <th
@@ -89,11 +95,11 @@ export default function Dashboard() {
           <tbody>
             {cosmeticAds?.map((item) => (
               <tr key={item.id}>
-                <td className="right_align">{item?.campaigns}</td>
-                <td>{item?.clicks.toLocaleString("en-IN")}</td>
-                <td>USD {item?.cost.toLocaleString("en-IN")}</td>
-                <td>{item?.conversions.toLocaleString("en-IN")}</td>
-                <td>{item?.revenue.toLocaleString("en-IN")}</td>
+                <td className="right_align" data-label="campaigns">{item?.campaigns}</td>
+                <td data-label="clicks">{item?.clicks.toLocaleString("en-IN")}</td>
+                <td data-label="cost">USD {item?.cost.toLocaleString("en-IN")}</td>
+                <td data-label="conversions">{item?.conversions.toLocaleString("en-IN")}</td>
+                <td data-label="revenue">{item?.revenue.toLocaleString("en-IN")}</td>
               </tr>
             ))}
           </tbody>
@@ -145,6 +151,7 @@ export default function Dashboard() {
             </span>{" "}
           </span>
         </div>
+       
         {toggleChart === "doughnut" ? (
           <DoughnutChart />
         ) : (
@@ -212,11 +219,11 @@ export default function Dashboard() {
             <tbody>
               {users?.map((item) => (
                 <tr>
-                  <td className="right_align">{item?.group}</td>
-                  <td>{item?.clicks.toLocaleString("en-IN")}</td>
-                  <td>USD {item?.cost.toLocaleString("en-IN")}</td>
-                  <td>{item?.conversions.toLocaleString("en-IN")}</td>
-                  <td>{item?.revenue.toLocaleString("en-IN")}</td>
+                  <td data-label="Gender"  className="right_align">{item?.group}</td>
+                  <td data-label="Clicks" >{item?.clicks.toLocaleString("en-IN")}</td>
+                  <td data-label="cost">USD {item?.cost.toLocaleString("en-IN")}</td>
+                  <td data-label="conversions">{item?.conversions.toLocaleString("en-IN")}</td>
+                  <td data-label="revenue">{item?.revenue.toLocaleString("en-IN")}</td>
                 </tr>
               ))}
             </tbody>

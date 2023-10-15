@@ -3,6 +3,7 @@ import { usersData, adInsights } from "../utils/constants";
 const {
   SORT_BY_CLICKS,
     SELECT_MATRIX,
+    SORT_BY_NAME
 } = actionTypes;
 const initialValue = {
   cosmeticAds: [...adInsights],
@@ -27,7 +28,13 @@ const tableReducer = (state = initialValue, action) => {
           ),
         ],
       };
-     
+      case SORT_BY_NAME:
+        const nameSorted = state[payload.table].sort((a, b) =>
+          payload.toggle
+            ? a.campaigns.localeCompare(b.campaigns)
+            : b.campaigns.localeCompare(a.campaigns)
+        );
+        return{...state,[payload.table]: [...nameSorted]};
     default:
       return state
   }
