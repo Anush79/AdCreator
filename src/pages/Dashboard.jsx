@@ -10,7 +10,7 @@ import { calculateTotal } from "../utils/utilityFunctions";
 import UpDownArrow from "../components/UpDownArrow";
 export default function Dashboard() {
   const [toggleChart, setToggleCharts] = useState("doughnut");
-  const { SELECT_MATRIX, SORT_BY_CLICKS ,SORT_BY_NAME} = actionTypes;
+  const { SELECT_MATRIX, SORT_BY_CLICKS, SORT_BY_NAME } = actionTypes;
   const dispatch = useDispatch();
   const cosmeticAds = useSelector((state) => state?.cosmeticAds);
   const users = useSelector((state) => state?.users);
@@ -37,13 +37,16 @@ export default function Dashboard() {
         <table>
           <thead>
             <tr>
-              <th className="right_align" onClick={() => {
+              <th
+                className="right_align"
+                onClick={() => {
                   setSorting(!sorting);
                   dispatch({
                     type: SORT_BY_NAME,
                     payload: { table: "cosmeticAds", toggle: sorting },
                   });
-                }} >
+                }}
+              >
                 Campaigns <UpDownArrow />
               </th>
               <th
@@ -51,7 +54,11 @@ export default function Dashboard() {
                   setSorting(!sorting);
                   dispatch({
                     type: SORT_BY_CLICKS,
-                    payload: { table: "cosmeticAds", toggle: sorting, prop: "clicks" },
+                    payload: {
+                      table: "cosmeticAds",
+                      toggle: sorting,
+                      prop: "clicks",
+                    },
                   });
                 }}
               >
@@ -62,7 +69,11 @@ export default function Dashboard() {
                   setSorting(!sorting);
                   dispatch({
                     type: SORT_BY_CLICKS,
-                    payload: { table: "cosmeticAds", toggle: sorting, prop: "cost" },
+                    payload: {
+                      table: "cosmeticAds",
+                      toggle: sorting,
+                      prop: "cost",
+                    },
                   });
                 }}
               >
@@ -73,7 +84,11 @@ export default function Dashboard() {
                   setSorting(!sorting);
                   dispatch({
                     type: SORT_BY_CLICKS,
-                    payload: { table: "cosmeticAds", toggle: sorting, prop: "conversions" },
+                    payload: {
+                      table: "cosmeticAds",
+                      toggle: sorting,
+                      prop: "conversions",
+                    },
                   });
                 }}
               >
@@ -84,7 +99,11 @@ export default function Dashboard() {
                   setSorting(!sorting);
                   dispatch({
                     type: SORT_BY_CLICKS,
-                    payload: { table: "cosmeticAds", toggle: sorting, prop: "revenue" },
+                    payload: {
+                      table: "cosmeticAds",
+                      toggle: sorting,
+                      prop: "revenue",
+                    },
                   });
                 }}
               >
@@ -95,11 +114,21 @@ export default function Dashboard() {
           <tbody>
             {cosmeticAds?.map((item) => (
               <tr key={item.id}>
-                <td className="right_align" data-label="campaigns">{item?.campaigns}</td>
-                <td data-label="clicks">{item?.clicks.toLocaleString("en-IN")}</td>
-                <td data-label="cost">USD {item?.cost.toLocaleString("en-IN")}</td>
-                <td data-label="conversions">{item?.conversions.toLocaleString("en-IN")}</td>
-                <td data-label="revenue">{item?.revenue.toLocaleString("en-IN")}</td>
+                <td className="right_align" data-label="campaigns">
+                  {item?.campaigns}
+                </td>
+                <td data-label="clicks">
+                  {item?.clicks.toLocaleString("en-IN")}
+                </td>
+                <td data-label="cost">
+                  USD {item?.cost.toLocaleString("en-IN")}
+                </td>
+                <td data-label="conversions">
+                  {item?.conversions.toLocaleString("en-IN")}
+                </td>
+                <td data-label="revenue">
+                  {item?.revenue.toLocaleString("en-IN")}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -110,7 +139,8 @@ export default function Dashboard() {
                 {calculateTotal(cosmeticAds, "clicks").toLocaleString("en-IN")}
               </td>
               <td>
-                USD {calculateTotal(cosmeticAds, "cost").toLocaleString("en-IN")}
+                USD{" "}
+                {calculateTotal(cosmeticAds, "cost").toLocaleString("en-IN")}
               </td>
               <td>
                 {calculateTotal(cosmeticAds, "conversions").toLocaleString(
@@ -126,6 +156,7 @@ export default function Dashboard() {
       </div>
 
       <div className="dataContainer">
+
         <div className="tableName">
           {" "}
           Ad Insights
@@ -136,7 +167,10 @@ export default function Dashboard() {
                   name="set matrix"
                   id=""
                   onChange={(e) => {
-                    dispatch({ type: SELECT_MATRIX, payload: e.target.value });
+                    dispatch({
+                      type: SELECT_MATRIX,
+                      payload: e.target.value,
+                    });
                   }}
                 >
                   <option value="clicks">Clicks</option>
@@ -151,124 +185,160 @@ export default function Dashboard() {
             </span>{" "}
           </span>
         </div>
-       
-        {toggleChart === "doughnut" ? (
-          <DoughnutChart />
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th className="right_align" >
-                  Group{" "}
-                  <UpDownArrow />
-                </th>
-                <th onClick={() => {
-                  setSorting(!sorting);
-                  dispatch({
-                    type: SORT_BY_CLICKS,
-                    payload: { table: "users", toggle: sorting, prop: "clicks" },
-                  });
-                }}>
-                  Clicks{" "}
-                  <UpDownArrow />
-                </th>
-                <th onClick={() => {
-                  setSorting(!sorting);
-                  dispatch({
-                    type: SORT_BY_CLICKS,
-                    payload: { table: "users", toggle: sorting, prop: "cost" },
-                  });
-                }}>
-                  Cost{" "}
-                  <UpDownArrow
-                    onClick={() => {
-                      setSorting(!sorting);
-                    }}
-                  />
-                </th>
-                <th onClick={() => {
-                  setSorting(!sorting);
-                  dispatch({
-                    type: SORT_BY_CLICKS,
-                    payload: { table: "users", toggle: sorting, prop: "conversions" },
-                  });
-                }}>
-                  Conversions{" "}
-                  <UpDownArrow
-                    onClick={() => {
-                      setSorting(!sorting);
-                    }}
-                  />
-                </th>
-                <th onClick={() => {
-                  setSorting(!sorting);
-                  dispatch({
-                    type: SORT_BY_CLICKS,
-                    payload: { table: "users", toggle: sorting, prop: "revenue" },
-                  });
-                }}>
-                  Revenue{" "}
-                  <UpDownArrow
-                    onClick={() => {
-                      setSorting(!sorting);
-                    }}
-                  />
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {users?.map((item) => (
+        <div className="data">
+          {toggleChart === "doughnut" ? (
+            <DoughnutChart />
+          ) : (
+            <table>
+              <thead>
                 <tr>
-                  <td data-label="Gender"  className="right_align">{item?.group}</td>
-                  <td data-label="Clicks" >{item?.clicks.toLocaleString("en-IN")}</td>
-                  <td data-label="cost">USD {item?.cost.toLocaleString("en-IN")}</td>
-                  <td data-label="conversions">{item?.conversions.toLocaleString("en-IN")}</td>
-                  <td data-label="revenue">{item?.revenue.toLocaleString("en-IN")}</td>
+                  <th className="right_align">
+                    Group <UpDownArrow />
+                  </th>
+                  <th
+                    onClick={() => {
+                      setSorting(!sorting);
+                      dispatch({
+                        type: SORT_BY_CLICKS,
+                        payload: {
+                          table: "users",
+                          toggle: sorting,
+                          prop: "clicks",
+                        },
+                      });
+                    }}
+                  >
+                    Clicks <UpDownArrow />
+                  </th>
+                  <th
+                    onClick={() => {
+                      setSorting(!sorting);
+                      dispatch({
+                        type: SORT_BY_CLICKS,
+                        payload: {
+                          table: "users",
+                          toggle: sorting,
+                          prop: "cost",
+                        },
+                      });
+                    }}
+                  >
+                    Cost{" "}
+                    <UpDownArrow
+                      onClick={() => {
+                        setSorting(!sorting);
+                      }}
+                    />
+                  </th>
+                  <th
+                    onClick={() => {
+                      setSorting(!sorting);
+                      dispatch({
+                        type: SORT_BY_CLICKS,
+                        payload: {
+                          table: "users",
+                          toggle: sorting,
+                          prop: "conversions",
+                        },
+                      });
+                    }}
+                  >
+                    Conversions{" "}
+                    <UpDownArrow
+                      onClick={() => {
+                        setSorting(!sorting);
+                      }}
+                    />
+                  </th>
+                  <th
+                    onClick={() => {
+                      setSorting(!sorting);
+                      dispatch({
+                        type: SORT_BY_CLICKS,
+                        payload: {
+                          table: "users",
+                          toggle: sorting,
+                          prop: "revenue",
+                        },
+                      });
+                    }}
+                  >
+                    Revenue{" "}
+                    <UpDownArrow
+                      onClick={() => {
+                        setSorting(!sorting);
+                      }}
+                    />
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td className="right_align">Total</td>
-                <td>
-                  {calculateTotal(users, "clicks").toLocaleString("en-IN")}
-                </td>
-                <td>
-                  USD{" "}
-                  {calculateTotal(users, "cost").toLocaleString("en-IN")}
-                </td>
-                <td>
-                  {calculateTotal(users, "conversions").toLocaleString(
-                    "en-IN"
-                  )}
-                </td>
-                <td>
-                  {calculateTotal(users, "revenue").toLocaleString("en-IN")}
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        )}
-        <div className="toggleDataChart">
-          <span
-            className="doughnutIcon"
-            style={toggleChart === "doughnut" ? styleToggle : null}
-            onClick={() => {
-              setToggleCharts("doughnut");
-            }}
-          >
-            <DonutLargeIcon />
-          </span>
-          <span
-            className="tableIcon"
-            onClick={() => {
-              setToggleCharts("table");
-            }}
-            style={toggleChart === "table" ? styleToggle : null}
-          >
-            <TableChartOutlinedIcon />
-          </span>
+              </thead>
+              <tbody>
+                {users?.map((item) => (
+                  <tr>
+                    <td data-label="Gender" className="right_align">
+                      {item?.group}
+                    </td>
+                    <td data-label="Clicks">
+                      {item?.clicks.toLocaleString("en-IN")}
+                    </td>
+                    <td data-label="cost">
+                      USD {item?.cost.toLocaleString("en-IN")}
+                    </td>
+                    <td data-label="conversions">
+                      {item?.conversions.toLocaleString("en-IN")}
+                    </td>
+                    <td data-label="revenue">
+                      {item?.revenue.toLocaleString("en-IN")}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td className="right_align">Total</td>
+                  <td>
+                    {calculateTotal(users, "clicks").toLocaleString("en-IN")}
+                  </td>
+                  <td>
+                    USD {calculateTotal(users, "cost").toLocaleString("en-IN")}
+                  </td>
+                  <td>
+                    {calculateTotal(users, "conversions").toLocaleString(
+                      "en-IN"
+                    )}
+                  </td>
+                  <td>
+                    {calculateTotal(users, "revenue").toLocaleString("en-IN")}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          )}
+        
+        <div className="toggleContainer">
+          <div className="toggleDataChart">
+            <span
+              className="doughnutIcon"
+              style={toggleChart === "doughnut" ? styleToggle : null}
+              onClick={() => {
+                setToggleCharts("doughnut");
+              }}
+            >
+              <DonutLargeIcon />
+            </span>
+            <span
+              className="tableIcon"
+              onClick={() => {
+                setToggleCharts("table");
+              }}
+              style={toggleChart === "table" ? styleToggle : null}
+            >
+              <TableChartOutlinedIcon />
+            </span>
+          </div>
         </div>
+        </div>
+        
       </div>
     </div>
   );

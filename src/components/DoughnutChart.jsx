@@ -22,6 +22,7 @@ export function DoughnutChart() {
     ],
   });
   const options = {
+    // responsive:false, //to fix the shrinking chart problem
     legend: {
       position: "left",
       display: true,
