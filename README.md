@@ -1,10 +1,30 @@
-# Getting Started with Create React App
+# React Web Application Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the source code and files for a React web application assignment completed by Anushka Jaiswal. The assignment was given by Keywordio and consists of building a responsive web application with specific features and functionality.
 
-## Available Scripts
+## Assignment Details
 
-In the project directory, you can run:
+The assignment included the following requirements and features:
+
+- Create a responsive web application using React JS.
+- Implement a top navigation bar with "Dashboard" and "Create Ad" links.
+- Add sorting options to tables for sorting by "High to Low" and "Low to High."
+- Create a toggle for Ads Insights, which displays a doughnut chart and table.
+- Implement a dropdown for matrices in Ads Insights, allowing users to select a metric to display in the doughnut chart.
+- Based on checkboxes (Text Ad and/or Media Ad), redirect to the Fill Data page and show respective input fields.
+- After submitting the form, redirect to "Ads Submitted," wait for 0.6 seconds, and redirect to the "Create Ads" page.
+
+## Repository Structure
+
+The repository is organized as follows:
+
+- [src/](src/) - Contains the source code for the React application.
+  - [components/](src/components/) - Contains React components used in the application.
+  - [App.js](src/App.js) - The main application component.
+- [public/](public/) - Contains public assets, including the HTML template.
+- [README.md](README.md) - This readme file.
+
+## Getting Started
 
 ### `npm start`
 
